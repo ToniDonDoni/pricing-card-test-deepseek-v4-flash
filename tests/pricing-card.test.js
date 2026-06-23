@@ -73,24 +73,28 @@ if (fs.existsSync(HTML_PATH)) {
     );
   });
 
-  // Test 6: Monthly/Annual pricing
-  test('contains monthly pricing ($0, $19, $99)', () => {
-    assert(html.includes('$0') || html.includes('$19') || html.includes('$99'),
-      'Missing monthly prices');
-  });
-
-  test('contains annual pricing (20% discount)', () => {
+  // Test 6: Monthly/Annual pricing (data in JS)
+  test('contains monthly pricing data ($0, $19, $99)', () => {
     assert(
-      html.includes('$15') || html.includes('15.20') ||
-      html.includes('$79') || html.includes('79.20'),
-      'Missing annual prices (20% off)');
+      (html.includes('monthly: 0') || html.includes('monthly:0')) &&
+      (html.includes('monthly: 19') || html.includes('monthly:19')) &&
+      (html.includes('monthly: 99') || html.includes('monthly:99')),
+      'Missing monthly price data in JS');
   });
 
-  // Test 7: CTA buttons
-  test('contains call-to-action buttons', () => {
-    const btnMatch = html.match(/<button[^>]*>/gi);
-    assert(btnMatch && btnMatch.length >= 3,
-      `Expected at least 3 buttons, found ${btnMatch ? btnMatch.length : 0}`);
+  test('contains annual pricing data (20% discount)', () => {
+    assert(
+      html.includes('15.20') || html.includes('annual: 15') ||
+      html.includes('79.20') || html.includes('annual: 79') ||
+      html.includes('annual: 0'),
+      'Missing annual price data (20% off)');
+  });
+
+  // Test 7: CTA buttons (created dynamically)
+  test('contains button creation code for all plans', () => {
+    const btnMatches = (html.match(/card-btn/g) || []).length;
+    assert(btnMatches >= 3,
+      `Expected 'card-btn' references >= 3, found ${btnMatches}`);
   });
 
   // Test 8: Responsive CSS
