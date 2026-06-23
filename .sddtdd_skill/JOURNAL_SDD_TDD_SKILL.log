@@ -30,3 +30,11 @@ TASK_ID: B-000002
 PARENT_TASK_ID: --
 ROOT_USER_INPUT_ID: T-000001
 DETAIL: Broker PASS: process-gate verification passed for task B-000002 (USER_INPUT_CAPTURE) at HEAD 840d746.
+
+=== J-20260623-204223-001 ===
+TYPE: SPEC_SPEC
+SPEC: S-PRICING-01
+STATUS: COMPLETED
+PARENT: J-20260623-204105-003
+ROOT: J-20260623-204105-001
+DETAIL: Created SPEC.md from SPEC-DRAFT.md with structured requirements, price table, and functional specs.
