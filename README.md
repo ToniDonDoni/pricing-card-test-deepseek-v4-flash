@@ -4,7 +4,7 @@ https://pricing-card-test-deepseek-v4-flash.vercel.app/
 # Setup
 Agent: Hermes Agent v0.13.0
 
-Skill: https://github.com/ToniDonDoni/elagentstudio/tree/draft/sddtdd_declarative_broker/skills/spec-driven-tdd 
+Skill: https://github.com/ToniDonDoni/elagentstudio/tree/a504e28ea8b9ef90e3f0e2826ba55a5c4b6549a0/skills/spec-driven-tdd
 
 Model: Deepseek v4 Flash 
 
